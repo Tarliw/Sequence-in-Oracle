@@ -1,0 +1,23 @@
+-- Создание таблицы с инкрементом в поле FIPR_Id
+CREATE TABLE FIPR_MASTER 
+(
+FIPR_Id INT GENERATED ALWAYS AS IDENTITY
+(START WITH 1
+INCREMENT BY 1
+MINVALUE 1
+NOMAXVALUE
+NOCYCLE
+ORDER) PRIMARY KEY,
+NAME VARCHAR(40) NOT NULL,
+last_NAME VARCHAR(40) NOT NULL
+);
+
+-- Добавление данных
+insert into FIPR_MASTER(NAME, last_NAME) values('Майк', 'Шольц');
+insert into FIPR_MASTER(NAME, last_NAME) values('Гайк', 'Инанц');
+insert into FIPR_MASTER(NAME, last_NAME) values('Генри', 'Шварц');
+
+-- Очистка таблицы
+truncate table FIPR_MASTER;
+-- Проверка
+select * from FIPR_MASTER;
